@@ -1,0 +1,34 @@
+_repo: The-Divine-Comedy-Volume-3-Paradise_1997
+contributor:
+  translator:
+    agent_name: Norton, Charles Eliot
+    birthdate: 1827
+    deathdate: 1908
+    gutenberg_agent_id: '778'
+    url: http://www.gutenberg.org/2009/agents/778
+    wikipedia: http://en.wikipedia.org/wiki/Charles_Eliot_Norton
+creator:
+  author:
+    agent_name: Dante Alighieri
+    alias: Alighieri, Dante
+    birthdate: 1265
+    deathdate: 1321
+    gutenberg_agent_id: '507'
+    url: http://www.gutenberg.org/2009/agents/507
+    wikipedia: http://en.wikipedia.org/wiki/Dante_Alighieri
+description: ''
+gutenberg_bookshelf: Italy
+gutenberg_issued: '1999-12-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '1997'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcc 'PQ'
+- !lcsh 'Italian poetry -- To 1400 -- Translations into English'
+- !lcsh 'Epic poetry, Italian -- Translations into English'
+title: The Divine Comedy, Volume 3, Paradise
+url: http://www.gutenberg.org/ebooks/1997
