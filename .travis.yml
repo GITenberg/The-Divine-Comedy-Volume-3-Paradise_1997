@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: JQPGsFbdSsnaseHyiLZzvmSCjp78lAlZIPDVSbP/tuO981NAkv0nmeGdwl3RErEFvGp7OoS4icPLkcYOQNJJK//JC2xotg3pENT7ExP52INAYWG+NjDEHYku1lNXGUFuWFHQsMjEs/rtyNqLMX6NFoChCeobfYZI3t7ITH4IAH09AQlGXKTAngg8roo5dKkQUf5w6xq9y/CBKU8t73rAYjSV42uaXXgtGsxy63pH07pnp942Wzzu4vIqiKHngg5sRhmnhkqMS2FUa5H9gz+FUrNC5oaBk04NhgFMGCB2HQk+Cok8P74I6IhRObOlKhp3CrS/oAxLBmcqeyB+h6ezoGjjgb7EKXNxwHyRXVHJxNANYBHoIDWBmHzWXfgmzQK+DrxT8YtmcmVNR7jHzMEHhxoqiCtQs2K6XB3narHLG+d1uuafqwdaAlSgCIzjQRIv56AJglUnkeCueb1Q6jXb66zYTAEepNde+GhKoTb99+bfZN65/mtgi5f7az0bjYBZfU+9NYHwNxTtySEFlASGl3HM7EMqH1n0adIGRkVubX96hf80n62xn4xalonrX5+zn0VyWbcBKtTUby7suL4B+zyiuM/tsala/y/4/ohormkywpcHDaU2k5ebjvo1evNgWPHvB5F/mOVkyZjnBtkmm967ODzO/6nREla3y/MV3sI=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/The-Divine-Comedy-Volume-3-Paradise_1997
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
