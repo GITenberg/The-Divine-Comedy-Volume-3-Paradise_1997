@@ -1,5 +1,5 @@
 _repo: The-Divine-Comedy-Volume-3-Paradise_1997
-_version: 0.2.0
+_version: 0.2.1
 contributor:
   translator:
     agent_name: Norton, Charles Eliot
@@ -36,5 +36,6 @@ subjects:
 - !lcc 'PQ'
 - !lcsh 'Italian poetry -- To 1400 -- Translations into English'
 - !lcsh 'Epic poetry, Italian -- Translations into English'
+- GITenberg
 title: The Divine Comedy, Volume 3, Paradise
 url: http://www.gutenberg.org/ebooks/1997
